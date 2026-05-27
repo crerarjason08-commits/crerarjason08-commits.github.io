@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jason Crerar — PGA Golf Pro & Maker</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 2rem; color: #333; }
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+    p.tagline { color: #666; margin-top: 0; }
+    h2 { margin-top: 2.5rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+    .card { background: #f9f9f9; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+    label { font-size: 14px; color: #555; display: block; margin-bottom: 6px; }
+    input[type=range] { width: 100%; }
+    .result { font-size: 1.1rem; font-weight: bold; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Jason Crerar</h1>
+  <p class="tagline">PGA Golf Pro · Club Fitter · 3D Printing Tinkerer</p>
+
+  <h2>About</h2>
+  <p>Welcome to my corner of the internet. I'm a PGA professional based in Berlin with a passion for golf club customisation, 3D printing training aids, and building useful tools for golfers.</p>
+
+  <h2>Club Shaft Fitting Calculator</h2>
+  <div class="card">
+    <label>Driver swing speed: <strong id="spd-out">90</strong> mph</label>
+    <input type="range" min="60" max="130" value="90" id="spd" oninput="calc()">
+    <div class="result" id="result"></div>
+  </div>
+
+  <h2>Projects</h2>
+  <div class="card">🖨️ 3D printed alignment rods & training aids — <em>coming soon</em></div>
+  <div class="card">🚁 Drone flyover videos for golf courses — <em>coming soon</em></div>
+  <div class="card">⛳ Club customisation & fitting — <em>coming soon</em></div>
+
+  <script>
+    function calc() {
+      var s = parseInt(document.getElementById('spd').value);
+      document.getElementById('spd-out').textContent = s;
+      var flex, loft, carry;
+      if (s >= 115) { flex = 'X (Extra Stiff)'; loft = '8–9.5°'; }
+      else if (s >= 100) { flex = 'S (Stiff)'; loft = '9–10.5°'; }
+      else if (s >= 85) { flex = 'R (Regular)'; loft = '10.5–12°'; }
+      else if (s >= 70) { flex = 'A (Senior)'; loft = '12–13.5°'; }
+      else { flex = 'L (Ladies)'; loft = '13–15°'; }
+      carry = Math.round(s * 2.5);
+      document.getElementById('result').textContent =
+        'Shaft flex: ' + flex + ' · Driver loft: ' + loft + ' · Est. carry: ' + carry + ' yds';
+    }
+    calc();
+  </script>
+
+</body>
+</html>
