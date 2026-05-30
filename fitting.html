@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Fitting Calculator — Jason Crerar</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Georgia', serif; max-width: 800px; margin: 0 auto; padding: 0; color: #1a1a1a; background: #f4f7f4; }
+    header { background: #1a3d2b; color: white; padding: 2rem; border-bottom: 4px solid #4a9e6b; }
+    header h1 { font-size: 2.2rem; margin: 0 0 0.25rem; }
+    p.tagline { color: #a8d5b5; margin: 0; font-style: italic; }
+    main { padding: 2rem; }
+    h2 { color: #1a3d2b; margin-top: 2.5rem; border-bottom: 2px solid #4a9e6b; padding-bottom: 0.5rem; }
+    .card { background: white; border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; border-left: 4px solid #4a9e6b; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+    label { font-size: 14px; color: #555; display: block; margin-bottom: 6px; }
+    input[type=range] { width: 100%; accent-color: #4a9e6b; }
+    .radio-group { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+    .radio-group label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
+    .result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 1rem; }
+    .result-card { background: #f4f7f4; border-radius: 8px; padding: 0.75rem 1rem; }
+    .result-card p { margin: 0; }
+    .result-card .label { font-size: 12px; color: #666; margin-bottom: 4px; }
+    .result-card .value { font-size: 16px; font-weight: bold; color: #1a3d2b; }
+    a.back { display: inline-block; margin-bottom: 1rem; color: #4a9e6b; text-decoration: none; font-size: 14px; }
+    a.back:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Club Fitting Calculator</h1>
+  <p class="tagline">Jason Crerar · PGA Golf Pro</p>
+</header>
+<main>
+  <a class="back" href="index.html">← Back to home</a>
+
+  <h2>Your Swing Details</h2>
+  <div class="card">
+    <label>Driver swing speed: <strong id="spd-out">90</strong> mph</label>
+    <input type="range" min="60" max="130" value="90" id="spd" oninput="calc()">
+  </div>
+
+  <div class="card">
+    <label>Typical ball flight</label>
+    <div class="radio-group">
+      <label><input type="radio" name="flight" value="low" onchange="calc()"> Low / penetrating</label>
+      <label><input type="radio" name="flight" value="mid" onchange="calc()" checked> Mid / neutral</label>
+      <label><input type="radio" name="flight" value="high" onchange="calc()"> High / ballooning</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>Swing tempo</label>
+    <div class="radio-group">
+      <label><input type="radio" name="tempo" value="smooth" onchange=
