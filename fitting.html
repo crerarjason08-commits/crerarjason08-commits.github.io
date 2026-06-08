@@ -70,6 +70,11 @@
     a.back { display: inline-block; margin-bottom: 1rem; color: #4a9e6b; text-decoration: none; font-size: 14px; }
     a.back:hover { text-decoration: underline; }
     hr.divider { border: none; border-top: 1px solid #dde8e2; margin: 2rem 0 0; }
+    footer { background: #1a3d2b; color: #a8d5b5; padding: 1.5rem 2rem; margin-top: 3rem; font-family: Arial, sans-serif; font-size: 13px; }
+    footer strong { color: white; display: block; margin-bottom: 0.5rem; font-size: 15px; }
+    footer a { color: #a8d5b5; text-decoration: none; }
+    footer a:hover { color: white; text-decoration: underline; }
+    footer .contact-row { margin-bottom: 4px; }
   </style>
 </head>
 <body>
@@ -78,14 +83,14 @@
   <h1>Club Fitting Calculator</h1>
   <p class="tagline">Jason Crerar · PGA Golf Pro</p>
   <nav style="margin-top: 1rem;">
-    <a href="index.html" style="color: #a8d5b5; margin-right: 1.5rem; text-decoration: none; font-size: 14px;">🏠 Home</a>
-    <a href="fitting.html" style="color: white; margin-right: 1.5rem; text-decoration: none; font-size: 14px;">📐 Club Fitting</a>
+    <a href="/index.html" style="color: #a8d5b5; margin-right: 1.5rem; text-decoration: none; font-size: 14px;">🏠 Home</a>
+    <a href="/fitting.html" style="color: white; margin-right: 1.5rem; text-decoration: none; font-size: 14px;">📐 Club Fitting</a>
     <a href="mailto:crerarjason08@gmail.com" style="color: #a8d5b5; text-decoration: none; font-size: 14px;">📧 Contact</a>
   </nav>
 </header>
 
 <main>
-  <a class="back" href="index.html">← Back to home</a>
+  <a class="back" href="/index.html">← Back to home</a>
 
   <h2>Your Swing Details</h2>
 
@@ -162,6 +167,13 @@
   </div>
 
 </main>
+
+<footer>
+  <strong>Jason Crerar — PGA Golf Professional</strong>
+  <div class="contact-row">📧 <a href="mailto:crerarjason08@gmail.com">crerarjason08@gmail.com</a></div>
+  <div class="contact-row">📱 <a href="https://wa.me/4917243241475">+49 172 432 41 75</a> (Tel / WhatsApp)</div>
+  <div class="contact-row" style="margin-top: 8px;">📍 Hamburg, Germany</div>
+</footer>
 
 <script>
   function getRadio(name) {
