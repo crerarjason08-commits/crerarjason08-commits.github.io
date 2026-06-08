@@ -6,7 +6,7 @@
   <title>Club Fitting Calculator — Jason Crerar</title>
   <style>
     * { box-sizing: border-box; }
-    body { font-family: 'Georgia', serif; max-width: 800px; margin: 0 auto; padding: 0; color: #1a1a1a; background: #f4f7f4; }
+    body { font-family: 'Georgia', serif; max-width: 800px; margin: 0 auto; padding: 0; color: #1a1a1a; background: #f4f7f4; scroll-behavior: smooth; }
     header { background: #1a3d2b; color: white; padding: 2rem; border-bottom: 4px solid #4a9e6b; }
     header h1 { font-size: 2.2rem; margin: 0 0 0.25rem; }
     p.tagline { color: #a8d5b5; margin: 0; font-style: italic; }
@@ -85,7 +85,7 @@
   <nav style="margin-top: 1rem;">
     <a href="/index.html" style="color: #a8d5b5; margin-right: 1.5rem; text-decoration: none; font-size: 14px;">🏠 Home</a>
     <a href="/fitting.html" style="color: white; margin-right: 1.5rem; text-decoration: none; font-size: 14px;">📐 Club Fitting</a>
-    <a href="mailto:crerarjason08@gmail.com" style="color: #a8d5b5; text-decoration: none; font-size: 14px;">📧 Contact</a>
+    <a href="#contact" style="color: #a8d5b5; text-decoration: none; font-size: 14px;">📧 Contact</a>
   </nav>
 </header>
 
@@ -168,12 +168,23 @@
 
 </main>
 
-<footer>
-  <strong>Jason Crerar — PGA Golf Professional</strong>
-  <div class="contact-row">📧 <a href="mailto:crerarjason08@gmail.com">crerarjason08@gmail.com</a></div>
-  <div class="contact-row">📱 <a href="https://wa.me/4917243241475">+49 172 432 41 75</a> (Tel / WhatsApp)</div>
-  <div class="contact-row" style="margin-top: 8px;">📍 Hamburg, Germany</div>
-</footer>
+<section id="contact">
+  <div style="background: #1a3d2b; padding: 2rem; font-family: Arial, sans-serif;">
+    <h2 style="color: white; border-bottom: 2px solid #4a9e6b; padding-bottom: 0.5rem; margin-top: 0;">Get In Touch</h2>
+    <p style="color: #a8d5b5; margin: 0.5rem 0 1.5rem; font-size: 14px;">Book a fitting, ask about lessons, or just say hello.</p>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <a href="mailto:crerarjason08@gmail.com" style="display: flex; align-items: center; gap: 12px; background: #4a9e6b; color: white; text-decoration: none; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: bold;">
+        <span style="font-size: 20px;">📧</span>
+        <span>crerarjason08@gmail.com</span>
+      </a>
+      <a href="https://wa.me/4917243241475" target="_blank" style="display: flex; align-items: center; gap: 12px; background: #25a244; color: white; text-decoration: none; padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: bold;">
+        <span style="font-size: 20px;">📱</span>
+        <span>+49 172 432 41 75 &nbsp;·&nbsp; Tel / WhatsApp</span>
+      </a>
+    </div>
+    <p style="color: #6a9e7a; font-size: 12px; margin: 1.25rem 0 0;">📍 Based in Hamburg, Germany</p>
+  </div>
+</section>
 
 <script>
   function getRadio(name) {
