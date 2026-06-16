@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golf Course Drone Flyovers — Jason Crerar</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Georgia', serif; max-width: 800px; margin: 0 auto; padding: 0; color: #1a1a1a; background: #f4f7f4; scroll-behavior: smooth; }
+    header { background: #1a3d2b; color: white; padding: 2rem; border-bottom: 4px solid #4a9e6b; }
+    header h1 { font-size: 2.2rem; margin: 0 0 0.25rem; }
+    p.tagline { color: #a8d5b5; margin: 0; font-style: italic; }
+    nav a { color: #a8d5b5; margin-right: 1.5rem; text-decoration: none; font-size: 14px; font-family: Arial, sans-serif; }
+    nav a.active { color: white; }
+    nav a:hover { color: white; }
+    main { padding: 2rem; }
+    h2 { color: #1a3d2b; margin-top: 2.5rem; border-bottom: 2px solid #4a9e6b; padding-bottom: 0.5rem; font-size: 1.6rem; }
+    h3 { color: #1a3d2b; margin: 0 0 0.5rem; font-size: 1.1rem; }
+    .hero { background: #1a3d2b; color: white; padding: 3rem 2rem; text-align: center; margin: -2rem -2rem 2rem; }
+    .hero h2 { color: white; border-bottom: 2px solid #4a9e6b; display: inline-block; padding-bottom: 0.5rem; margin-top: 0; font-size: 2rem; }
+    .hero p { color: #a8d5b5; font-size: 1.1rem; margin: 1rem auto; max-width: 550px; line-height: 1.7; }
+    .hero a { display: inline-block; margin-top: 1rem; padding: 12px 28px; background: #4a9e6b; color: white; border-radius: 8px; text-decoration: none; font-family: Arial, sans-serif; font-weight: bold; font-size: 15px; }
+    .hero a:hover { background: #3d8a5c; }
+    .card { background: white; border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; border-left: 4px solid #4a9e6b; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .service-card { background: white; border-radius: 10px; padding: 1.25rem 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); border-top: 4px solid #4a9e6b; }
+    .service-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .service-card p { font-size: 13px; color: #555; font-family: Arial, sans-serif; line-height: 1.6; margin: 0.5rem 0 0; }
+    .packages { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .package { background: white; border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); border: 1.5px solid #ddd; text-align: center; }
+    .package.featured { border-color: #4a9e6b; position: relative; }
+    .package.featured::before { content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #4a9e6b; color: white; font-size: 11px; font-family: Arial, sans-serif; font-weight: bold; padding: 3px 12px; border-radius: 20px; white-space: nowrap; }
+    .package .price { font-size: 2rem; font-weight: bold; color: #1a3d2b; font-family: Arial, sans-serif; margin: 0.5rem 0; }
+    .package .price span { font-size: 14px; color: #888; font-weight: normal; }
+    .package ul { list-style: none; padding: 0; margin: 1rem 0; text-align: left; font-size: 13px; font-family: Arial, sans-serif; color: #555; }
+    .package ul li { padding: 4px 0; padding-left: 20px; position: relative; }
+    .package ul li::before { content: '✓'; position: absolute; left: 0; color: #4a9e6b; font-weight: bold; }
+    .package a { display: block; margin-top: 1rem; padding: 10px; background: #4a9e6b; color: white; border-radius: 8px; text-decoration: none; font-family: Arial, sans-serif; font-weight: bold; font-size: 13px; }
+    .package a:hover { background: #3d8a5c; }
+    .steps { counter-reset: steps; }
+    .step { display: flex; gap: 1.25rem; align-items: flex-start; margin-bottom: 1.25rem; }
+    .step-num { background: #4a9e6b; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: Arial, sans-serif; font-weight: bold; font-size: 16px; flex-shrink: 0; }
+    .step-content h3 { margin: 0 0 4px; color: #1a3d2b; font-size: 15px; }
+    .step-content p { margin: 0; font-size: 13px; color: #555; font-family: Arial, sans-serif; line-height: 1.6; }
+    .qr-box { background: #edf7f1; border: 1px solid #4a9e6b; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+    .qr-box .qr-icon { font-size: 4rem; flex-shrink: 0; }
+    .qr-box h3 { margin: 0 0 0.5rem; color: #1a3d2b; }
+    .qr-box p { margin: 0; font-size: 13px; color: #555; font-family: Arial, sans-serif; line-height: 1.6; }
+    .faq .q { font-weight: bold; color: #1a3d2b; font-size: 14px; margin-top: 1rem; font-family: Arial, sans-serif; }
+    .faq .a { font-size: 13px; color: #555; font-family: Arial, sans-serif; line-height: 1.6; margin: 4px 0 0; }
+    .cta-box { margin-top: 2rem; padding: 2rem; background: #1a3d2b; border-radius: 10px; text-align: center; }
+    .cta-box h3 { color: white; margin: 0 0 0.5rem; font-size: 1.4rem; }
+    .cta-box p { color: #a8d5b5; font-size: 14px; font-family: Arial, sans-serif; margin: 0 0 1.25rem; }
+    .cta-box .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-box a { display: inline-block; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-family: Arial, sans-serif; font-weight: bold; font-size: 14px; }
+    .cta-box a.primary { background: #4a9e6b; color: white; }
+    .cta-box a.secondary { background: transparent; color: #a8d5b5; border: 1.5px solid #4a9e6b; }
+    .cta-box a:hover { opacity: 0.9; }
+    footer { background: #1a3d2b; color: #a8d5b5; padding: 1.5rem 2rem; margin-top: 3rem; font-family: Arial, sans-serif; font-size: 13px; }
+    footer strong { color: white; display: block; margin-bottom: 0.5rem; font-size: 15px; }
+    footer a { color: #a8d5b5; text-decoration: none; }
+    footer a:hover { color: white; }
+    footer .contact-row { margin-bottom: 4px; }
+    a.back { display: inline-block; margin-bottom: 1rem; color: #4a9e6b; text-decoration: none; font-size: 14px; font-family: Arial, sans-serif; }
+    a.back:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Golf Course Drone Flyovers</h1>
+  <p class="tagline">Jason Crerar · PGA Golf Pro · Hamburg, Germany</p>
+  <nav style="margin-top: 1rem;">
+    <a href="/index.html">🏠 Home</a>
+    <a href="/fitting.html">📐 Club Fitting</a>
+    <a href="/flyovers.html" class="active">🚁 Drone Flyovers</a>
+    <a href="#contact">📧 Contact</a>
+  </nav>
+</header>
+
+<main>
+  <a class="back" href="/index.html">← Back to home</a>
+
+  <div class="hero">
+    <h2>Your Course. From Above.</h2>
+    <p>Stunning hole-by-hole drone flyovers for golf clubs across Germany. Produced by a PGA professional who understands golf — not just cameras.</p>
+    <a href="#contact">Book a free demo shoot →</a>
+  </div>
+
+  <h2>What's Included</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="icon">🚁</div>
+      <h3>Hole-by-Hole Flyovers</h3>
+      <p>A dedicated drone video for every hole — tee to green. Golfers can watch before they play.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🎬</div>
+      <h3>Course Highlight Reel</h3>
+      <p>A cinematic 2–3 minute showcase of your course for your website, social media, and membership marketing.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">📸</div>
+      <h3>Aerial Photography</h3>
+      <p>High-resolution aerial stills of signature holes, the clubhouse, and the wider course layout.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">📱</div>
+      <h3>QR Code Integration</h3>
+      <p>Golfers scan a QR code on the cart or scorecard to watch the flyover before teeing off. A feature your members will love.</p>
+    </div>
+  </div>
+
+  <h2>Packages</h2>
+  <div class="packages">
+    <div class="package">
+      <h3>Starter</h3>
+      <div class="price">€199 <span>/ visit</span></div>
+      <ul>
+        <li>3 signature holes</li>
+        <li>60-second highlight reel</li>
+        <li>Edited with music</li>
+        <li>Delivered in 1 week</li>
+      </ul>
+      <a href="#contact">Get in touch</a>
+    </div>
+    <div class="package featured">
+      <h3>Full Course</h3>
+      <div class="price">€499 <span>/ visit</span></div>
+      <ul>
+        <li>All 18 holes covered</li>
+        <li>2–3 minute highlight reel</li>
+        <li>Aerial photography included</li>
+        <li>QR code integration</li>
+        <li>Delivered in 1 week</li>
+      </ul>
+      <a href="#contact">Get in touch</a>
+    </div>
+    <div class="package">
+      <h3>Premium</h3>
+      <div class="price">€899 <span>/ visit</span></div>
+      <ul>
+        <li>Everything in Full Course</li>
+        <li>Golden hour session</li>
+        <li>Raw footage included</li>
+        <li>Social media cuts (9:16)</li>
+        <li>1 round of revisions</li>
+      </ul>
+      <a href="#contact">Get in touch</a>
+    </div>
+  </div>
+
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Get in touch</h3>
+        <p>Tell us about your course — number of holes, any specific areas you want to showcase, your timeline.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>We schedule the shoot</h3>
+        <p>We only need 3 consecutive tee times blocked off from 8am. We follow pace of play and won't interfere with your members.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>We film and edit</h3>
+        <p>Using a DJI Mini 5 Pro with a 1-inch sensor for cinematic quality footage. Edited and delivered within 7 days.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>You go live</h3>
+        <p>Upload to your website, share on social media, and set up QR codes on your carts and scorecards. Your members will notice immediately.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="qr-box">
+    <div class="qr-icon">📲</div>
+    <div>
+      <h3>QR Codes on Every Cart</h3>
+      <p>We provide branded QR code stickers for your golf carts and scorecards. Golfers scan before each tee shot to watch the hole flyover on their phone — showing distances, hazards, and the ideal line. A feature that genuinely adds value for your members and sets your club apart.</p>
+    </div>
+  </div>
+
+  <h2>Why Choose a PGA Professional?</h2>
+  <div class="card">
+    <p>Most drone operators know cameras. I know golf. As a PGA professional based in Hamburg, I understand what makes a hole look challenging, what golfers want to see before they play, and how to frame a course in a way that makes it look its best.</p>
+    <p style="margin-top: 0.75rem;">That knowledge shows up in every shot — the angle from behind the green looking back, the reveal of a carry over water, the way the fairway dogleg looks from 80 metres up. You won't need to explain any of it.</p>
+  </div>
+
+  <h2>FAQ</h2>
+  <div class="faq card">
+    <div class="q">Does the course need to be closed during filming?</div>
+    <div class="a">No. We only need 3 consecutive tee times blocked from 8am. We follow normal pace of play and won't disrupt your members.</div>
+
+    <div class="q">What areas in Germany do you cover?</div>
+    <div class="a">Based in Hamburg, we cover the whole of northern Germany and travel throughout Germany for the right project. Travel costs may apply outside the Hamburg area.</div>
+
+    <div class="q">How long until we receive the finished videos?</div>
+    <div class="a">You'll receive your first draft within 7 days of the shoot date. One round of revisions is included.</div>
+
+    <div class="q">What format are the videos delivered in?</div>
+    <div class="a">MP4, optimised for web and social media. We also provide 9:16 vertical cuts (for Instagram Reels and TikTok) in the Premium package.</div>
+
+    <div class="q">Do you have the required drone licence?</div>
+    <div class="a">Yes. We fly fully compliant with EU drone regulations, registered with the German Luftfahrt-Bundesamt (LBA) and operating under the A1 open category.</div>
+  </div>
+
+  <div class="cta-box" id="contact">
+    <h3>Ready to show your course from above?</h3>
+    <p>Get in touch to book a free demo shoot at your club — no obligation, just great footage.</p>
+    <div class="btn-group">
+      <a href="mailto:crerarjason08@gmail.com" class="primary">📧 Email Jason</a>
+      <a href="https://wa.me/491724324175" target="_blank" class="secondary">📱 WhatsApp</a>
+    </div>
+    <p style="margin-top: 1rem; font-size: 12px;">+49 172 432 41 75 · Hamburg, Germany</p>
+  </div>
+
+</main>
+
+<footer>
+  <strong>Jason Crerar — PGA Golf Professional</strong>
+  <div class="contact-row">📧 <a href="mailto:crerarjason08@gmail.com">crerarjason08@gmail.com</a></div>
+  <div class="contact-row">📱 <a href="https://wa.me/491724324175">+49 172 432 41 75</a> (Tel / WhatsApp)</div>
+  <div class="contact-row" style="margin-top: 8px;">📍 Hamburg, Germany</div>
+</footer>
+
+</body>
+</html>
